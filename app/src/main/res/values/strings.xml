@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LeoShare</string>
+    <string name="accessibility_service_description">SnippetShare uses Accessibility to capture the screen when you tap the floating button. No data is collected or transmitted.</string>
+</resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ─── Permissions ─────────────────────────────────────────────────── -->
+    <!-- Draw the floating trigger icon over other apps -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Required for all foreground services on Android 9+ -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!-- Required for FloatingTriggerService specialUse type -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- Required on Android 13+ to post any notification -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LeoShare">
+
+        <!-- ─── Main Entry Activity ───────────────────────────────────── -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.LeoShare">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ─── Cropping Overlay Activity ────────────────────────────── -->
+        <activity
+            android:name=".CroppingActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- ─── Floating Overlay Trigger Service ──────────────────────── -->
+        <service
+            android:name=".FloatingTriggerService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="overlay_trigger" />
+        </service>
+
+        <!-- ─── Accessibility Service ─────────────────────────────────── -->
+        <!--
+            Replaces MediaProjection. User enables this ONCE in:
+            Settings → Accessibility → Installed Apps → SnippetShare
+            After that, takeScreenshot() works silently with no per-capture dialog.
+        -->
+        <service
+            android:name=".SnippetAccessibilityService"
+            android:exported="true"
+            android:label="SnippetShare"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- ─── FileProvider ──────────────────────────────────────────── -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.leoshare.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>
