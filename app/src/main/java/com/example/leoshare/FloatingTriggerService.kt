@@ -232,7 +232,7 @@ class FloatingTriggerService : Service() {
         if (!SnippetAccessibilityService.isReady()) {
             Toast.makeText(
                 this,
-                "Enable SnippetShare in Accessibility Settings first",
+                "Enable GhostShare in Accessibility Settings first",
                 Toast.LENGTH_LONG
             ).show()
             return
@@ -286,7 +286,7 @@ class FloatingTriggerService : Service() {
         val channel = NotificationChannel(
             CHANNEL_ID, "Floating Trigger", NotificationManager.IMPORTANCE_LOW
         ).apply {
-            description = "SnippetShare overlay button"
+            description = "GhostShare overlay button"
             setShowBadge(false)
         }
         getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
@@ -299,7 +299,7 @@ class FloatingTriggerService : Service() {
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("SnippetShare overlay active")
+            .setContentTitle("GhostShare overlay active")
             .setContentText("Tap the floating ✂️ button to capture a snippet")
             .setSmallIcon(android.R.drawable.ic_menu_share)
             .addAction(android.R.drawable.ic_delete, "Stop overlay", stopIntent)

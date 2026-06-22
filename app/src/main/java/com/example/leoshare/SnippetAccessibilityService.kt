@@ -32,7 +32,7 @@ class SnippetAccessibilityService : AccessibilityService() {
     companion object {
         /**
          * Live reference to the running service. Non-null when the user has enabled
-         * SnippetShare in Accessibility Settings and the service is connected.
+         * GhostShare in Accessibility Settings and the service is connected.
          */
         @Volatile
         var instance: SnippetAccessibilityService? = null

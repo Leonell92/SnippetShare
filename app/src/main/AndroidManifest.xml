@@ -58,13 +58,13 @@
         <!-- ─── Accessibility Service ─────────────────────────────────── -->
         <!--
             Replaces MediaProjection. User enables this ONCE in:
-            Settings → Accessibility → Installed Apps → SnippetShare
+            Settings → Accessibility → Installed Apps → GhostShare
             After that, takeScreenshot() works silently with no per-capture dialog.
         -->
         <service
             android:name=".SnippetAccessibilityService"
             android:exported="true"
-            android:label="SnippetShare"
+            android:label="GhostShare"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />

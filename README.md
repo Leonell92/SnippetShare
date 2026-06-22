@@ -1,8 +1,8 @@
-# SnippetShare ✂️
+# GhostShare ✂️
 
 A lightweight, open-source Android alternative to "Circle to Search" that focuses on privacy and speed. 
 
-SnippetShare lets you instantly capture a region of your screen and share it directly to any app—**without saving the image to your public photo gallery.**
+GhostShare lets you instantly capture a region of your screen and share it directly to any app—**without saving the image to your public photo gallery.**
 
 ## Features ✨
 * **No Gallery Clutter:** Screen captures are held in temporary memory and never saved to your Google Photos or Gallery.
@@ -12,11 +12,11 @@ SnippetShare lets you instantly capture a region of your screen and share it dir
 * **100% Free & Open Source:** No ads, no trackers, no BS.
 
 ## Installation 📱
-You can download the latest APK from the **[Releases](https://github.com/Leonell92/SnippetShare/releases/latest)** page.
+You can download the latest APK from the **[Releases](https://github.com/Leonell92/GhostShare/releases/latest)** page.
 
 1. Download `app-release.apk`
 2. Install it on your Android device (you may need to allow installation from unknown sources).
-3. Open SnippetShare and grant the two required permissions: "Display over other apps" and "Accessibility Access".
+3. Open GhostShare and grant the two required permissions: "Display over other apps" and "Accessibility Access".
 4. The floating scissors icon will appear!
 
 ## Why I built this
@@ -25,4 +25,4 @@ The "Share" option in Circle to Search has recently disappeared for many Pixel a
 So I built a solution: a lightweight tool specifically for sharing a quick snippet of a screen without leaving a trace of it on my device. No heavy system integrations, no saving to your camera roll—just fast, instant sharing.
 
 ## Support the Developer ☕
-SnippetShare is completely free and open-source. If you find it useful and want to support a solo developer, you can buy me a coffee. (https://ko-fi.com/leoemmanuel)
+GhostShare is completely free and open-source. If you find it useful and want to support a solo developer, you can buy me a coffee. (https://ko-fi.com/leoemmanuel)

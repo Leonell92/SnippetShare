@@ -56,11 +56,11 @@ import com.example.leoshare.ui.theme.LeoShareTheme
 import kotlinx.coroutines.delay
 
 /**
- * MainActivity.kt — SnippetShare entry point.
+ * MainActivity.kt — GhostShare entry point.
  *
  * Two-step setup:
  *  1. SYSTEM_ALERT_WINDOW  → "Display over other apps"
- *  2. AccessibilityService → "Settings → Accessibility → SnippetShare"
+ *  2. AccessibilityService → "Settings → Accessibility → GhostShare"
  *
  * Once both are granted, starts FloatingTriggerService.
  * No MediaProjection dialog — ever.
@@ -72,7 +72,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LeoShareTheme {
-                SnippetShareHomeScreen(
+                GhostShareHomeScreen(
                     onStartFloatingService = {
                         startForegroundService(
                             Intent(this, FloatingTriggerService::class.java)
@@ -105,7 +105,7 @@ fun isAccessibilityServiceEnabled(context: Context): Boolean {
 // ─────────────────────────────────────────────────────────────────────────────
 
 @Composable
-fun SnippetShareHomeScreen(
+fun GhostShareHomeScreen(
     onStartFloatingService: () -> Unit,
     onStopFloatingService: () -> Unit
 ) {
@@ -173,7 +173,7 @@ fun SnippetShareHomeScreen(
 
             // ── Title ─────────────────────────────────────────────────────────
             Text(
-                "SnippetShare",
+                "GhostShare",
                 color      = Color.White,
                 fontSize   = 32.sp,
                 fontWeight = FontWeight.Bold,
@@ -221,7 +221,7 @@ fun SnippetShareHomeScreen(
                     step        = "2",
                     emoji       = "♿",
                     title       = "Accessibility Access",
-                    description = "Lets SnippetShare silently capture the screen — no pop-up every time.",
+                    description = "Lets GhostShare silently capture the screen — no pop-up every time.",
                     isGranted   = hasAccessibilityPermission,
                     actionLabel = if (hasOverlayPermission) "Enable" else "Step 1 first",
                     onAction    = {
@@ -362,7 +362,7 @@ private fun ActiveStatusBanner(onStop: () -> Unit) {
                 )
                 Spacer(Modifier.size(8.dp))
                 Text(
-                    "SnippetShare is active",
+                    "GhostShare is active",
                     color      = Color(0xFF66BB6A),
                     fontWeight = FontWeight.Bold,
                     fontSize   = 16.sp
@@ -381,7 +381,7 @@ private fun ActiveStatusBanner(onStop: () -> Unit) {
                 shape   = RoundedCornerShape(50),
                 colors  = ButtonDefaults.buttonColors(containerColor = Color(0xFF4A1010))
             ) {
-                Text("Stop SnippetShare", color = Color(0xFFFF6E6E))
+                Text("Stop GhostShare", color = Color(0xFFFF6E6E))
             }
         }
     }
